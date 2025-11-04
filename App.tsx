@@ -2,11 +2,13 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
-import TelaHome from "./src/componentes/TelaHome";
-import TelaDescricao from "./src/componentes/TelaDescricao";
-import TelaRotas from "./src/componentes/TelaRotas";
-import TelaBiblioteca from "./src/componentes/TelaBiblioteca";
+import TelaHome from "./src/Componentes/TelaInício";
+import TelaDescricao from "./src/Componentes/TelaCatálogo";
+import TelaRotas from "./src/Componentes/TelaRotas";
+import TelaBiblioteca from "./src/Componentes/TelaContato";
 
 const Tabs = createBottomTabNavigator();
 
@@ -21,7 +23,7 @@ export default function App() {
         }}
       >
         <Tabs.Screen
-          name="Home"
+          name="Início"
           component={TelaHome}
           options={{
             tabBarIcon: ({ color, size }) => (
@@ -31,31 +33,21 @@ export default function App() {
         />
 
         <Tabs.Screen
-          name="Telas"
+          name="Catálogo"
           component={TelaDescricao}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <Feather name="monitor" color={color} size={size} />
+              <FontAwesome5 name="wine-bottle" size={24} color="black" />
             ),
           }}
         />
 
         <Tabs.Screen
-          name="Rotas"
-          component={TelaRotas}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Feather name="map" color={color} size={size} />
-            ),
-          }}
-        />
-
-        <Tabs.Screen
-          name="Biblioteca"
+          name="Contato"
           component={TelaBiblioteca}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <Feather name="book" color={color} size={size} />
+              <FontAwesome6 name="contact-book" size={24} color="black" />
             ),
           }}
         />

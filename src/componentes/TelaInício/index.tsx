@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default function TelaDescricao() {
+export default function TelaHome() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Nomes das telas</Text>
+      <Text style={styles.title}>Como navegar?</Text>
       <Text style={styles.text}>
-        Perceba que cada aba representa uma tela do aplicativo.
+        Toque nas abas abaixo para navegar entre as telas.
       </Text>
     </View>
   );
