@@ -1,30 +1,39 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Feather } from "@expo/vector-icons";
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { Feather, FontAwesome5 } from "@expo/vector-icons";
 
-import TelaHome from "./src/Componentes/TelaInício";
-import TelaDescricao from "./src/Componentes/TelaCatálogo";
-import TelaRotas from "./src/Componentes/TelaRotas";
-import TelaBiblioteca from "./src/Componentes/TelaContato";
+import TelaInicio from "./src/Componentes/TelaInicio";
+import TelaCatalogo from "./src/Componentes/TelaCatalogo";
+import TelaContato from "./src/Componentes/TelaContato";
 
-const Tabs = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Tabs.Navigator
+      <Tab.Navigator
         screenOptions={{
-          headerShown: false,
-          tabBarActiveTintColor: "blue",
-          tabBarInactiveTintColor: "gray",
+          headerStyle: {
+            backgroundColor: "#4A0000", 
+          },
+          headerTintColor: "#fff", 
+          headerTitleAlign: "center", 
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 18,
+          },
+          tabBarStyle: {
+            backgroundColor: "#4A0000",
+            borderTopColor: "#4A0000",
+          },
+          tabBarActiveTintColor: "#fff",
+          tabBarInactiveTintColor: "#C9AFAF",
         }}
       >
-        <Tabs.Screen
+        <Tab.Screen
           name="Início"
-          component={TelaHome}
+          component={TelaInicio}
           options={{
             tabBarIcon: ({ color, size }) => (
               <Feather name="home" color={color} size={size} />
@@ -32,29 +41,30 @@ export default function App() {
           }}
         />
 
-        <Tabs.Screen
+        <Tab.Screen
           name="Catálogo"
-          component={TelaDescricao}
+          component={TelaCatalogo}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <FontAwesome5 name="wine-bottle" size={24} color="black" />
+              <FontAwesome5 name="wine-bottle" color={color} size={size} />
             ),
           }}
         />
 
-        <Tabs.Screen
+        <Tab.Screen
           name="Contato"
-          component={TelaBiblioteca}
+          component={TelaContato}
           options={{
             tabBarIcon: ({ color, size }) => (
-              <FontAwesome6 name="contact-book" size={24} color="black" />
+              <FontAwesome5 name="address-book" color={color} size={size} />
             ),
           }}
         />
-      </Tabs.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
+
 
 
 // import React from "react";
